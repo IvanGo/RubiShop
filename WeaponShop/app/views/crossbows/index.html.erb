@@ -14,6 +14,7 @@
       <th>Длина болта</th>
       <th>Производитель</th>
       <th>Тип</th>
+      <th>Цена</th>
       <th></th>
       <th></th>
       <th></th>
@@ -34,6 +35,7 @@
         <td><%= crossbow.bolt_lenght %></td>
         <td><%= crossbow.producer %></td>
         <td><%= crossbow.crossbowtype_id %></td>
+        <td><%= crossbow.price %></td>
         <td><%= link_to 'Show', crossbow %></td>
         <td><%= link_to 'Edit', edit_crossbow_path(crossbow) %></td>
         <td><%= link_to 'Destroy', crossbow, method: :delete, data: { confirm: 'Are you sure?' } %></td>

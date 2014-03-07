@@ -69,6 +69,6 @@ class BowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bow_params
-      params.require(:bow).permit(:name, :description, :tension_force, :lenght, :tensionlenght, :arrow_start_speed, :weight, :bow_base, :producer, :bowtype_id)
+      params.require(:bow).permit(:name, :description, :tension_force, :lenght, :tensionlenght, :arrow_start_speed, :weight, :bow_base, :producer, :bowtype_id, :price)
     end
 end

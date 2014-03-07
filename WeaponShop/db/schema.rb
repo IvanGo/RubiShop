@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307130722) do
+ActiveRecord::Schema.define(version: 20140307152130) do
 
   create_table "bows", force: true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140307130722) do
     t.integer  "bowtype_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "price"
   end
 
   create_table "bowtypes", force: true do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140307130722) do
     t.integer  "crossbowtype_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "price"
   end
 
   create_table "crossbowtypes", force: true do |t|

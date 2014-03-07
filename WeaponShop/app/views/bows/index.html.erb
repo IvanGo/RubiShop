@@ -13,6 +13,7 @@
       <th>Bow base</th>
       <th>Producer</th>
       <th>Bowtype</th>
+      <th>Price</th>
       <th></th>
       <th></th>
       <th></th>
@@ -32,6 +33,7 @@
         <td><%= bow.bow_base %></td>
         <td><%= bow.producer %></td>
         <td><%= bow.bowtype_id %></td>
+        <td><%= bow.price %></td>
         <td><%= link_to 'Show', bow %></td>
         <td><%= link_to 'Edit', edit_bow_path(bow) %></td>
         <td><%= link_to 'Destroy', bow, method: :delete, data: { confirm: 'Are you sure?' } %></td>

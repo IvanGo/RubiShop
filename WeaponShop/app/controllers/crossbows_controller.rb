@@ -69,6 +69,6 @@ class CrossbowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def crossbow_params
-      params.require(:crossbow).permit(:name, :description, :tension_force, :stroke_bowstring, :shoulders_lenght, :arrow_start_speed, :weight, :dimensions, :bolt_lenght, :producer, :crossbowtype_id)
+      params.require(:crossbow).permit(:name, :description, :tension_force, :stroke_bowstring, :shoulders_lenght, :arrow_start_speed, :weight, :dimensions, :bolt_lenght, :producer, :crossbowtype_id, :price)
     end
 end
