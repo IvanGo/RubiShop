@@ -1,4 +1,12 @@
 WeaponShop::Application.routes.draw do
+  resources :bowtypes
+
+  resources :bows
+
+  resources :crossbowtypes
+
+  resources :crossbows
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

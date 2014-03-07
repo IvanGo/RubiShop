@@ -1,0 +1,2 @@
+module CrossbowtypesHelper
+end

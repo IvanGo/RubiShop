@@ -1,0 +1,27 @@
+<h1>Listing bowtypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bowtypes.each do |bowtype| %>
+      <tr>
+        <td><%= bowtype.name %></td>
+        <td><%= link_to 'Show', bowtype %></td>
+        <td><%= link_to 'Edit', edit_bowtype_path(bowtype) %></td>
+        <td><%= link_to 'Destroy', bowtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bowtype', new_bowtype_path %>

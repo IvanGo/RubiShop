@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bow.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bow.description %>
+</p>
+
+<p>
+  <strong>Tension force:</strong>
+  <%= @bow.tension_force %>
+</p>
+
+<p>
+  <strong>Lenght:</strong>
+  <%= @bow.lenght %>
+</p>
+
+<p>
+  <strong>Tensionlenght:</strong>
+  <%= @bow.tensionlenght %>
+</p>
+
+<p>
+  <strong>Arrow start speed:</strong>
+  <%= @bow.arrow_start_speed %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @bow.weight %>
+</p>
+
+<p>
+  <strong>Bow base:</strong>
+  <%= @bow.bow_base %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @bow.producer %>
+</p>
+
+<p>
+  <strong>Bowtype:</strong>
+  <%= @bow.bowtype_id %>
+</p>
+
+<%= link_to 'Edit', edit_bow_path(@bow) %> |
+<%= link_to 'Back', bows_path %>

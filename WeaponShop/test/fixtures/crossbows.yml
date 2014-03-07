@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  tension_force: 1.5
+  stroke_bowstring: 1.5
+  shoulders_lenght: 1.5
+  arrow_start_speed: 1.5
+  weight: 1.5
+  dimensions: MyString
+  bolt_lenght: 1.5
+  producer: MyString
+  crossbowtype_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  tension_force: 1.5
+  stroke_bowstring: 1.5
+  shoulders_lenght: 1.5
+  arrow_start_speed: 1.5
+  weight: 1.5
+  dimensions: MyString
+  bolt_lenght: 1.5
+  producer: MyString
+  crossbowtype_id: 1

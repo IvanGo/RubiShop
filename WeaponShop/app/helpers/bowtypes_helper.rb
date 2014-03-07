@@ -1,0 +1,2 @@
+module BowtypesHelper
+end

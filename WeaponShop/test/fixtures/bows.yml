@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  tension_force: 1.5
+  lenght: 1.5
+  tensionlenght: 1.5
+  arrow_start_speed: 1.5
+  weight: 1.5
+  bow_base: 1.5
+  producer: MyString
+  bowtype_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  tension_force: 1.5
+  lenght: 1.5
+  tensionlenght: 1.5
+  arrow_start_speed: 1.5
+  weight: 1.5
+  bow_base: 1.5
+  producer: MyString
+  bowtype_id: 1

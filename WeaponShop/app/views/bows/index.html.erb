@@ -1,0 +1,45 @@
+<h1>Listing bows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Tension force</th>
+      <th>Lenght</th>
+      <th>Tensionlenght</th>
+      <th>Arrow start speed</th>
+      <th>Weight</th>
+      <th>Bow base</th>
+      <th>Producer</th>
+      <th>Bowtype</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bows.each do |bow| %>
+      <tr>
+        <td><%= bow.name %></td>
+        <td><%= bow.description %></td>
+        <td><%= bow.tension_force %></td>
+        <td><%= bow.lenght %></td>
+        <td><%= bow.tensionlenght %></td>
+        <td><%= bow.arrow_start_speed %></td>
+        <td><%= bow.weight %></td>
+        <td><%= bow.bow_base %></td>
+        <td><%= bow.producer %></td>
+        <td><%= bow.bowtype_id %></td>
+        <td><%= link_to 'Show', bow %></td>
+        <td><%= link_to 'Edit', edit_bow_path(bow) %></td>
+        <td><%= link_to 'Destroy', bow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bow', new_bow_path %>

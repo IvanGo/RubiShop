@@ -1,0 +1,1 @@
+json.extract! @crossbow, :id, :name, :description, :tension_force, :stroke_bowstring, :shoulders_lenght, :arrow_start_speed, :weight, :dimensions, :bolt_lenght, :producer, :crossbowtype_id, :created_at, :updated_at

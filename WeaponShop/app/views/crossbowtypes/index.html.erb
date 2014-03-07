@@ -1,0 +1,27 @@
+<h1>Listing crossbowtypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crossbowtypes.each do |crossbowtype| %>
+      <tr>
+        <td><%= crossbowtype.name %></td>
+        <td><%= link_to 'Show', crossbowtype %></td>
+        <td><%= link_to 'Edit', edit_crossbowtype_path(crossbowtype) %></td>
+        <td><%= link_to 'Destroy', crossbowtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Crossbowtype', new_crossbowtype_path %>

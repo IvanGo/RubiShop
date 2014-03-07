@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Название:</strong>
+  <%= @crossbow.name %>
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @crossbow.description %>
+</p>
+
+<p>
+  <strong>Сила натяжения:</strong>
+  <%= @crossbow.tension_force %>
+</p>
+
+<p>
+  <strong>Рабочий ход тетивы:</strong>
+  <%= @crossbow.stroke_bowstring %>
+</p>
+
+<p>
+  <strong>Длина плеч:</strong>
+  <%= @crossbow.shoulders_lenght %>
+</p>
+
+<p>
+  <strong>Начальная скорость стрелы:</strong>
+  <%= @crossbow.arrow_start_speed %>
+</p>
+
+<p>
+  <strong>Вес:</strong>
+  <%= @crossbow.weight %>
+</p>
+
+<p>
+  <strong>Габариты:</strong>
+  <%= @crossbow.dimensions %>
+</p>
+
+<p>
+  <strong>Длина болта:</strong>
+  <%= @crossbow.bolt_lenght %>
+</p>
+
+<p>
+  <strong>Производитель:</strong>
+  <%= @crossbow.producer %>
+</p>
+
+<p>
+  <strong>Тип:</strong>
+  <%= @crossbow.crossbowtype_id %>
+</p>
+
+<%= link_to 'Edit', edit_crossbow_path(@crossbow) %> |
+<%= link_to 'Back', crossbows_path %>

@@ -1,0 +1,47 @@
+<h1>Listing crossbows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Сила натяжения</th>
+      <th>Рабочий ход тетивы</th>
+      <th>Длина плеч</th>
+      <th>Начальная скорость стрелы</th>
+      <th>Вес</th>
+      <th>Габариты</th>
+      <th>Длина болта</th>
+      <th>Производитель</th>
+      <th>Тип</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crossbows.each do |crossbow| %>
+      <tr>
+        <td><%= crossbow.name %></td>
+        <td><%= crossbow.description %></td>
+        <td><%= crossbow.tension_force %></td>
+        <td><%= crossbow.stroke_bowstring %></td>
+        <td><%= crossbow.shoulders_lenght %></td>
+        <td><%= crossbow.arrow_start_speed %></td>
+        <td><%= crossbow.weight %></td>
+        <td><%= crossbow.dimensions %></td>
+        <td><%= crossbow.bolt_lenght %></td>
+        <td><%= crossbow.producer %></td>
+        <td><%= crossbow.crossbowtype_id %></td>
+        <td><%= link_to 'Show', crossbow %></td>
+        <td><%= link_to 'Edit', edit_crossbow_path(crossbow) %></td>
+        <td><%= link_to 'Destroy', crossbow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Crossbow', new_crossbow_path %>
