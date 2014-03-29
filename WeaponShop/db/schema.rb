@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307152130) do
+ActiveRecord::Schema.define(version: 20140329080908) do
 
   create_table "bows", force: true do |t|
     t.string   "name"
@@ -27,10 +27,16 @@ ActiveRecord::Schema.define(version: 20140307152130) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "price"
+    t.string   "mainphoto"
   end
 
   create_table "bowtypes", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,10 +56,19 @@ ActiveRecord::Schema.define(version: 20140307152130) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "price"
+    t.string   "mainphoto"
   end
 
   create_table "crossbowtypes", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", force: true do |t|
+    t.integer  "bow_id"
+    t.integer  "crossbow_id"
+    t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

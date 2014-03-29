@@ -1,48 +1,25 @@
 <h1>Listing crossbows</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Название</th>
-      <th>Описание</th>
-      <th>Сила натяжения</th>
-      <th>Рабочий ход тетивы</th>
-      <th>Длина плеч</th>
-      <th>Начальная скорость стрелы</th>
-      <th>Вес</th>
-      <th>Габариты</th>
-      <th>Длина болта</th>
-      <th>Производитель</th>
-      <th>Тип</th>
-      <th>Цена</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @crossbows.each do |crossbow| %>
-      <tr>
-        <td><%= crossbow.name %></td>
-        <td><%= crossbow.description %></td>
-        <td><%= crossbow.tension_force %></td>
-        <td><%= crossbow.stroke_bowstring %></td>
-        <td><%= crossbow.shoulders_lenght %></td>
-        <td><%= crossbow.arrow_start_speed %></td>
-        <td><%= crossbow.weight %></td>
-        <td><%= crossbow.dimensions %></td>
-        <td><%= crossbow.bolt_lenght %></td>
-        <td><%= crossbow.producer %></td>
-        <td><%= crossbow.crossbowtype_id %></td>
-        <td><%= crossbow.price %></td>
-        <td><%= link_to 'Show', crossbow %></td>
-        <td><%= link_to 'Edit', edit_crossbow_path(crossbow) %></td>
-        <td><%= link_to 'Destroy', crossbow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div>
+    <% @crossbows.each do |cb| %>
+      
+        <div class="product-block" style="float :left">
+          <div class="white-wrap">
+            <a class="model-name" title="Купить"  href="/crossbows/<%= cb.id %>" target="_blank" rel="nofollow"><%= cb.name %> </a>
+            <a class="photo-wrap" href="/crossbows/<%= cb.id %>" target="_blank" rel="nofollow">
+            <span><img height="180" width="180" src="assets\images\crossbow_view.jpg" alt="Шарики Paintballs New Formular Kal .43 rot-orange "></span></a>
+          </div>
+          <div class="gradient-wrap">
+            <a class="btn btn-grey btn-large" title="Купить" href="/static_pages/cart" target="_blank" rel="nofollow">Купить <span class="count"><%= cb.price %></span></a>
+            
+            <div class="separator-dotted">
+            </div>
+            
+          </div>
+      </div>
+      
     <% end %>
-  </tbody>
-</table>
+</div>
 
 <br>
 

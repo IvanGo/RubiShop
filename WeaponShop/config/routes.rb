@@ -1,4 +1,16 @@
 WeaponShop::Application.routes.draw do
+  resources :line_items
+
+  resources :carts
+
+  get "static_pages/bow"
+  get "static_pages/crossbow"
+  get "static_pages/cart"
+  get "static_pages/registration"
+  get "static_pages/signin"
+  get "static_pages/crossbows"
+  get "static_pages/bows"
+  get "static_pages/home"
   resources :bowtypes
 
   resources :bows
@@ -6,6 +18,9 @@ WeaponShop::Application.routes.draw do
   resources :crossbowtypes
 
   resources :crossbows
+
+  #root 'static_pages/home'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
