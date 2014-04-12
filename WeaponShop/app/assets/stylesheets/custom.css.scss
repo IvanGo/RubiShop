@@ -12,6 +12,10 @@ section {
   overflow: auto;
 }
 
+img {
+    height: inherit;
+}
+
 textarea {
   resize: vertical;
 }
@@ -49,4 +53,62 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.left_menu {
+  float: left;
+  width: 200px;
+  height: auto;
+  margin: 20px;
+  border: 1px solid;
+  border-color: #ff8700;
+}
+
+.left_menu_element {
+  font-family: 'Arial Narrow';
+  font-size: 14px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid;
+  border-color: #ff8700;
+  background: #444444;
+  text-align: center;
+}
+
+.top_menu_types {
+  background: #ff8700;
+  height: 50px;
+  margin: 5px;
+}
+
+.top_menu_types_element {
+  float: left;
+  font-size: 14px;
+  font-family: 'Arial Narrow';
+  text-align: center;
+  width: 100px;
+}
+
+.cart_item{
+  height: 200px;
+  border: 1px solid #ff8700;
+  margin: 10px;
+}
+
+.cart_item_image{
+  height: 180px;
+  width: 180px;
+  margin: 10px;
+  border: 1px solid #ff8700;
+  float: left;
+}
+
+.cart_item_name{
+  font-size: 20px;
+  height: 25px;
+}
+
+.cart_item_price{
+  font-size: 12px;
+  margin: 10px;
 }

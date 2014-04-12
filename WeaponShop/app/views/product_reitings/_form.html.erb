@@ -1,0 +1,33 @@
+<%= form_for(@product_reiting) do |f| %>
+  <% if @product_reiting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_reiting.errors.count, "error") %> prohibited this product_reiting from being saved:</h2>
+
+      <ul>
+      <% @product_reiting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bow_id %><br>
+    <%= f.number_field :bow_id %>
+  </div>
+  <div class="field">
+    <%= f.label :crossbow_id %><br>
+    <%= f.number_field :crossbow_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :raiting %><br>
+    <%= f.number_field :raiting %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

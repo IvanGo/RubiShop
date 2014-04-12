@@ -1,0 +1,31 @@
+<h1>Listing viewscounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bow</th>
+      <th>Crossbow</th>
+      <th>Count</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @viewscounts.each do |viewscount| %>
+      <tr>
+        <td><%= viewscount.bow_id %></td>
+        <td><%= viewscount.crossbow_id %></td>
+        <td><%= viewscount.count %></td>
+        <td><%= link_to 'Show', viewscount %></td>
+        <td><%= link_to 'Edit', edit_viewscount_path(viewscount) %></td>
+        <td><%= link_to 'Destroy', viewscount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Viewscount', new_viewscount_path %>

@@ -1,10 +1,12 @@
 class BowsController < ApplicationController
   before_action :set_bow, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize, :only => [:new, :create]
 
   # GET /bows
   # GET /bows.json
   def index
     @bows = Bow.all
+    @types = Bowtype.all
   end
 
   # GET /bows/1
@@ -60,6 +62,30 @@ class BowsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def increment_viewscount(id)
+      el = Viewscount.where(bow_id: id).first
+
+      if el.nil?
+        el = Viewscount.create(:bow_id => id, :count => 1)
+      else
+        el.count += 1
+      end
+
+      el.save
+  end
+  helper_method :increment_viewscount
+
+  def get_viewscount(id)
+      el = Viewscount.where(bow_id: id).first
+
+      if el.nil?
+        return 0
+      else
+        return el.count
+      end
+  end
+  helper_method :get_viewscount
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bow:</strong>
+  <%= @viewscount.bow_id %>
+</p>
+
+<p>
+  <strong>Crossbow:</strong>
+  <%= @viewscount.crossbow_id %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @viewscount.count %>
+</p>
+
+<%= link_to 'Edit', edit_viewscount_path(@viewscount) %> |
+<%= link_to 'Back', viewscounts_path %>

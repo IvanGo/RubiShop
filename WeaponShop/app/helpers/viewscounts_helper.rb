@@ -1,0 +1,2 @@
+module ViewscountsHelper
+end

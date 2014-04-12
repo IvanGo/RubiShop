@@ -1,3 +1,5 @@
+
+<%= increment_viewscount(@crossbow.id) %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -59,6 +61,8 @@
   <strong>Цена:</strong>
   <%= @crossbow.price %>
 </p>
+
+<img height="180" width="180" src="<%= @crossbow.mainphoto %>" alt="<%= @crossbow.mainphoto %>">
 
 <%= link_to 'Edit', edit_crossbow_path(@crossbow) %> |
 <%= link_to 'Back', crossbows_path %>

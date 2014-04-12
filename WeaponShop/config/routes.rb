@@ -1,4 +1,21 @@
 WeaponShop::Application.routes.draw do
+
+
+  resources :viewscounts
+
+  get 'admin' => 'admin#index'
+  controller :sessions do 
+    get 'login' => :new 
+    post 'login' => :create 
+    delete 'logout' => :destroy 
+  end
+
+
+  
+  resources :product_reitings
+
+  resources :users
+
   resources :line_items
 
   resources :carts
@@ -19,7 +36,7 @@ WeaponShop::Application.routes.draw do
 
   resources :crossbows
 
-  #root 'static_pages/home'
+  #root :to => 'static_pages#home', :as 'main'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

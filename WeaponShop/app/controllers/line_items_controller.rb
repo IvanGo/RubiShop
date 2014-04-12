@@ -1,5 +1,6 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize, :only => :create
 
   # GET /line_items
   # GET /line_items.json
@@ -24,7 +25,17 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    @cart = current_cart
+    if params[:bow_id]
+      bow = Bow.find(params[:bow_id])
+    end
+    
+    if params[:crossbow_id]
+      crossbow = Crossbow.find(params[:crossbow_id])
+    end
+    
+    @line_item = @cart.line_items.build(:bow => bow, :crossbow => crossbow)
+
 
     respond_to do |format|
       if @line_item.save

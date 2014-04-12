@@ -1,0 +1,29 @@
+<%= form_for(@viewscount) do |f| %>
+  <% if @viewscount.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@viewscount.errors.count, "error") %> prohibited this viewscount from being saved:</h2>
+
+      <ul>
+      <% @viewscount.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bow_id %><br>
+    <%= f.number_field :bow_id %>
+  </div>
+  <div class="field">
+    <%= f.label :crossbow_id %><br>
+    <%= f.number_field :crossbow_id %>
+  </div>
+  <div class="field">
+    <%= f.label :count %><br>
+    <%= f.number_field :count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

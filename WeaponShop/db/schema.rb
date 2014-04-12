@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329080908) do
+ActiveRecord::Schema.define(version: 20140412162106) do
 
   create_table "bows", force: true do |t|
     t.string   "name"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20140329080908) do
     t.datetime "updated_at"
     t.float    "price"
     t.string   "mainphoto"
+    t.string   "mainphoto_file_name"
+    t.string   "mainphoto_content_type"
+    t.integer  "mainphoto_file_size"
   end
 
   create_table "bowtypes", force: true do |t|
@@ -57,6 +60,9 @@ ActiveRecord::Schema.define(version: 20140329080908) do
     t.datetime "updated_at"
     t.float    "price"
     t.string   "mainphoto"
+    t.string   "mainphoto_file_name"
+    t.string   "mainphoto_content_type"
+    t.integer  "mainphoto_file_size"
   end
 
   create_table "crossbowtypes", force: true do |t|
@@ -69,6 +75,31 @@ ActiveRecord::Schema.define(version: 20140329080908) do
     t.integer  "bow_id"
     t.integer  "crossbow_id"
     t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_reitings", force: true do |t|
+    t.integer  "bow_id"
+    t.integer  "crossbow_id"
+    t.integer  "user_id"
+    t.integer  "raiting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "viewscounts", force: true do |t|
+    t.integer  "bow_id"
+    t.integer  "crossbow_id"
+    t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

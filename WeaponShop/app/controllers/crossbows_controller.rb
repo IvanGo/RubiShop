@@ -1,10 +1,15 @@
 class CrossbowsController < ApplicationController
   before_action :set_crossbow, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize, :only => [:new, :create]
+
+  
 
   # GET /crossbows
   # GET /crossbows.json
   def index
     @crossbows = Crossbow.all
+    @specialcrossbows = Crossbow.get_crossbows_with_type(1)
+    @types = Crossbowtype.all
   end
 
   # GET /crossbows/1
@@ -61,6 +66,30 @@ class CrossbowsController < ApplicationController
     end
   end
 
+  def increment_viewscount(id)
+      el = Viewscount.where(crossbow_id: id).first
+
+      if el.nil?
+        el = Viewscount.create(:crossbow_id => id, :count => 1)
+      else
+        el.count += 1
+      end
+
+      el.save
+  end
+  helper_method :increment_viewscount
+
+  def get_viewscount(id)
+      el = Viewscount.where(crossbow_id: id).first
+
+      if el.nil?
+        return 0
+      else
+        return el.count
+      end
+  end
+  helper_method :get_viewscount
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_crossbow
@@ -69,6 +98,6 @@ class CrossbowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def crossbow_params
-      params.require(:crossbow).permit(:name, :description, :tension_force, :stroke_bowstring, :shoulders_lenght, :arrow_start_speed, :weight, :dimensions, :bolt_lenght, :producer, :crossbowtype_id, :price)
+      params.require(:crossbow).permit(:name, :description, :tension_force, :stroke_bowstring, :shoulders_lenght, :arrow_start_speed, :weight, :dimensions, :bolt_lenght, :producer, :crossbowtype_id, :price, :mainphoto)
     end
 end

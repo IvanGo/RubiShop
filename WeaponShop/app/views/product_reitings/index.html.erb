@@ -1,0 +1,33 @@
+<h1>Listing product_reitings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bow</th>
+      <th>Crossbow</th>
+      <th>User</th>
+      <th>Raiting</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_reitings.each do |product_reiting| %>
+      <tr>
+        <td><%= product_reiting.bow_id %></td>
+        <td><%= product_reiting.crossbow_id %></td>
+        <td><%= product_reiting.user_id %></td>
+        <td><%= product_reiting.raiting %></td>
+        <td><%= link_to 'Show', product_reiting %></td>
+        <td><%= link_to 'Edit', edit_product_reiting_path(product_reiting) %></td>
+        <td><%= link_to 'Destroy', product_reiting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product reiting', new_product_reiting_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bow_id: 1
+  crossbow_id: 1
+  count: 1
+
+two:
+  bow_id: 1
+  crossbow_id: 1
+  count: 1

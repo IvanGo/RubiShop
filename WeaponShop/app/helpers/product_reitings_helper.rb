@@ -1,0 +1,2 @@
+module ProductReitingsHelper
+end
