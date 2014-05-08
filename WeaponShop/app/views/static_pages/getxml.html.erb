@@ -1,0 +1,17 @@
+<h1>Таков ответ</h1>
+
+<div>
+	<%= @doc %>
+</div>
+
+<div style = "height: 20px; background-color: green;"></div>
+
+<div>
+	<% @doc.xpath("//extra").each do |res| %>
+		<p><%= res.attribute("name") %> = <%= res.text %></p>
+	<% end %>
+	<p>Версия протокола = <%= @doc.xpath("//protocol-version").text %></p>
+	<p>Тип запроса = <%= @doc.xpath("//request-type").text %></p>
+	<p>Идентификатор терминала = <%= @doc.xpath("//terminal-id").text %></p>
+</div>
+

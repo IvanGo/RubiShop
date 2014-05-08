@@ -1,0 +1,31 @@
+<h1>Listing raitings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bow</th>
+      <th>Crossbow</th>
+      <th>Raiting</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @raitings.each do |raiting| %>
+      <tr>
+        <td><%= raiting.bow_id %></td>
+        <td><%= raiting.crossbow_id %></td>
+        <td><%= raiting.raiting %></td>
+        <td><%= link_to 'Show', raiting %></td>
+        <td><%= link_to 'Edit', edit_raiting_path(raiting) %></td>
+        <td><%= link_to 'Destroy', raiting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Raiting', new_raiting_path %>

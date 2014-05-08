@@ -1,2 +1,30 @@
-<h1>StaticPages#cart</h1>
-<p>Find me in app/views/static_pages/cart.html.erb</p>
+<h1>Структура сообщения о покупке</h1>
+<a href="/static_pages/getxml">Типа получить ответ</a>
+<textarea style="width: 80%; height: 500px;">
+<?xml version="1.0" encoding="utf-8"?>
+	<request>  
+		<protocol-version>4.00</protocol-version>  
+		<request-type>10</request-type>  
+		<terminal-id>123</terminal-id>  
+		<extra name="login">login</extra>  
+		<extra name="password-md5">password-md5</extra>  
+		<extra name="client-software">Dealer v3.22</extra>  
+		<extra name="user-agent">1.2.3456.7890</extra>  
+		<extra name="operating-system">Windows XP (Build 2600)</extra>  
+		<extra name="serial">ABC12345</extra>
+		<auth count="<%= @items.count %>" to-amount="<%= get_sum %>">
+		<% @items.each do |it| %>
+			<payment>    
+				<transaction-number>123456789</transaction-number>    
+				<from>     
+					<amount><%= get_price(it.id) %></amount>    
+				</from>    
+				<to>     
+					<amount><%= get_price(it.id) %></amount>     
+					<service-id><%= it.id %></service-id>     
+					<account-number>+7951-95-35-143</account-number>    
+				</to>   
+			</payment> 
+		<% end %>
+	</request>
+</textarea>

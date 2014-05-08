@@ -1,20 +1,20 @@
-<h1>Listing line_items</h1>
-
+<h1>Корзина</h1>
+<a href="/static_pages/cart">Купить всё через qiwi</a>
 
 <% @line_items.each do |line_item| %>
 <div class="cart_item">
   <div>
     <div class="cart_item_image">
-      <img src="" alt="^_^">
+      <img src="<%= get_product_image(line_item.id) %>" alt="^_^">
     </div>
     <div class="cart_item_name">
-      <%= line_item.bow_id %>
+      
     </div>
     <div class="cart_item_name">
-      <%= line_item.crossbow_id %>
+      <%= get_product_name(line_item.id) %>
     </div>
     <div class="cart_item_price">
-      <%= line_item.cart_id %>
+      <%= get_price(line_item.id) %>
     </div>
     <div class="btn btn-grey btn-large">
       <%= link_to 'Убрать', line_item, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -23,6 +23,3 @@
 </div>
 <% end %>
 
-<br>
-
-<%= link_to 'New Line item', new_line_item_path %>

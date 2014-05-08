@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :authorize, :only => :create
+  skip_before_filter :authorize, :only => [:index, :create, :destroy]
 
   # GET /line_items
   # GET /line_items.json
@@ -71,6 +71,63 @@ class LineItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # PATCH/PUT /line_items/build_xml
+  def build_xml
+    @line_items = LineItem.all
+    @xml = Builder::XmlMarkup.new
+    @xml.instruct! :xml, :version=>"1.0" 
+ 
+    @xml.request{
+      @xml.protocolversion(4.00)
+      @xml.requet-type(10)
+      @line_items.each do |lit|
+        @xml.catalog do
+          @xml.id(lit.id)
+        end
+      end
+    }
+  end
+
+  def get_price(line_id)
+    @li = LineItem.find(line_id)
+
+    if @li.crossbow_id.nil?
+      @bow = Bow.where(id: @li.bow_id).first
+      return @bow.price
+    else
+      @cbow = Crossbow.where(id: @li.crossbow_id).first
+      return @cbow.price
+    end
+  end
+  helper_method :get_price
+
+  def get_product_name(line_id)
+    @li = LineItem.find(line_id)
+
+    if @li.crossbow_id.nil?
+      @bow = Bow.where(id: @li.bow_id).first
+      return @bow.name
+    else
+      @cbow = Crossbow.where(id: @li.crossbow_id).first
+      return @cbow.name
+    end
+  end
+  helper_method :get_product_name
+
+  def get_product_image(line_id)
+    @li = LineItem.find(line_id)
+
+    if @li.crossbow_id.nil?
+      @bow = Bow.where(id: @li.bow_id).first
+      return @bow.mainphoto.url
+    else
+      @cbow = Crossbow.where(id: @li.crossbow_id).first
+      return @cbow.mainphoto.url
+    end
+  end
+  helper_method :get_product_image
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

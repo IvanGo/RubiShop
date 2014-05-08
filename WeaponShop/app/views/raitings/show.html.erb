@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bow:</strong>
+  <%= @raiting.bow_id %>
+</p>
+
+<p>
+  <strong>Crossbow:</strong>
+  <%= @raiting.crossbow_id %>
+</p>
+
+<p>
+  <strong>Raiting:</strong>
+  <%= @raiting.raiting %>
+</p>
+
+<%= link_to 'Edit', edit_raiting_path(@raiting) %> |
+<%= link_to 'Back', raitings_path %>

@@ -1,6 +1,6 @@
 class BowsController < ApplicationController
   before_action :set_bow, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :authorize, :only => [:new, :create]
+  skip_before_filter :authorize, :only => [:show, :index]
 
   # GET /bows
   # GET /bows.json
@@ -12,6 +12,8 @@ class BowsController < ApplicationController
   # GET /bows/1
   # GET /bows/1.json
   def show
+    @raiting = get_raiting(@bow.id)
+    @linkers = get_linkers(@bow.id)
   end
 
   # GET /bows/new
@@ -86,6 +88,56 @@ class BowsController < ApplicationController
       end
   end
   helper_method :get_viewscount
+
+  def get_raiting_id(id)
+      el = Raiting.where(bow_id: id).first
+
+      if el.nil?
+        el = Raiting.create(bow_id: id)
+      end
+
+      return el.id
+      
+  end
+  helper_method :get_raiting_id
+
+  def get_raiting(id)
+      el = Raiting.where(crossbow_id: id).first
+
+      if el.nil?
+        el = Raiting.create(crossbow_id: id)
+      end
+
+      return el
+      
+  end
+  helper_method :get_raiting
+
+  def get_linkers(cbid)
+    result = Array.new()
+
+    cartcond = LineItem.where(bow_id: cbid)
+    if (!(cartcond.nil?) && !(cartcond.empty?))
+
+      cartid = cartcond.last.cart_id
+      if (!(cartid.nil?))
+        line = LineItem.where(cart_id: cartid)
+        
+
+        line.each do |l|
+          if(l.crossbow_id.nil?)
+            result << Bow.find(l.bow_id)
+          else
+            result << Crossbow.find(l.crossbow_id)
+          end
+        end
+
+      end
+    end
+
+    return result
+  end
+  helper_method :get_linkers
 
   private
     # Use callbacks to share common setup or constraints between actions.

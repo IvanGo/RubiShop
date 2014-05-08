@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<request>  
+	<protocol-version>4.00</protocol-version>  
+	<request-type>10</request-type>  
+	<terminal-id>123</terminal-id>  
+	<extra name="login">S1</extra>  
+	<extra name="password-md5">S2</extra>  
+	<extra name="client-software">Dealer v0</extra>
+</request> 

@@ -1,6 +1,8 @@
 WeaponShop::Application.routes.draw do
 
 
+  resources :raitings
+
   resources :viewscounts
 
   get 'admin' => 'admin#index'
@@ -10,7 +12,7 @@ WeaponShop::Application.routes.draw do
     delete 'logout' => :destroy 
   end
 
-
+  post '/setraiting/' => "raitings#update"
   
   resources :product_reitings
 
@@ -25,6 +27,7 @@ WeaponShop::Application.routes.draw do
   get "static_pages/cart"
   get "static_pages/registration"
   get "static_pages/signin"
+  get "static_pages/getxml"
   get "static_pages/crossbows"
   get "static_pages/bows"
   get "static_pages/home"

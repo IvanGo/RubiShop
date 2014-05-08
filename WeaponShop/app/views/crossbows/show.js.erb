@@ -1,0 +1,23 @@
+$(function() {
+	$('.raiting_star_cb').click(function(){
+		var star = $(this);
+		var stars = parseInt($(this).attr('data-stars'));
+		var cbid = $(this).attr('data-product-id');
+		var raitid = $(this).attr('data-raiting-id');
+
+		for(i=1; i<=stars; i++){
+			$('#' + cbid + '_' + i).addClass('on');
+		}
+
+		for(i=stars+1; i<=5; i++){
+			$('#' + cbid + '_' + i).removeClass('on');
+		}
+
+		$.ajax({
+      		url: '/setraiting/' + raitid,
+      		type: 'post',
+      		data: { raiting: stars }
+    	}).done(function (data){});
+
+	});
+});

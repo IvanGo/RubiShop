@@ -1,5 +1,62 @@
+<script>
+  $(function() {
+  $('.raiting_star_cb').click(function(){
+    var star = $(this);
+    var stars = parseInt($(this).attr('data-stars'));
+    var cbid = $(this).attr('data-product-id');
+    var raitid = $(this).attr('data-raiting-id');
+
+    for(i=1; i<=stars; i++){
+      $('#' + cbid + '_' + i).addClass('on');
+    }
+
+    for(i=stars+1; i<=5; i++){
+      $('#' + cbid + '_' + i).removeClass('on');
+    }
+    
+    switch (stars){
+      case 1:
+        console.dir(1);
+        <% @raiting.raiting = 1 %>;
+        break;
+
+      case 2:
+        console.dir(2);
+        <% @raiting.raiting = 2 %>;
+        break;
+
+      case 3:
+        console.dir(3);
+        <% @raiting.raiting = 3 %>;
+        break;
+
+      case 4:
+        console.dir(4);
+        <% @raiting.raiting = 4 %>;
+        break;
+
+      case 5:
+        console.dir(5);
+        <% @raiting.raiting = 5 %>;
+        break;
+
+      default:
+        console.dir(6);
+        <% @raiting.raiting = 6 %>;
+        break;
+    };
+    <% @raiting.save %>;
+
+  });
+});
+</script>
+
 <%= increment_viewscount(@bow.id) %>
 <p id="notice"><%= notice %></p>
+
+<% (1..5).each do |s| %>
+  <li class="raiting_star_cb" data-product-id="<%= @bow.id %>" data-stars=<%= s %> data-raiting-id="<%= get_raiting_id(@bow.id) %>" id=<%= "#{@bow.id}_#{s}" %>></li>
+<% end %>
 
 <p>
   <strong>Name:</strong>
@@ -56,5 +113,26 @@
   <%= @bow.price %>
 </p>
 
-<%= link_to 'Edit', edit_bow_path(@bow) %> |
-<%= link_to 'Back', bows_path %>
+<img height="180" width="180" src="<%= @bow.mainphoto %>" alt="<%= @bow.mainphoto %>">
+
+<div>
+    <% @linkers.each do |cb| %>
+      
+        <div class="product-block" style="float :left">
+          <div class="white-wrap">
+            <a class="model-name" title="Купить"  href="/crossbows/<%= cb.id %>" target="_blank" rel="nofollow"><%= cb.name %> </a>
+            <p>Просмотров <%= get_viewscount(cb.id) %></p>
+            <a class="photo-wrap" href="/crossbows/<%= cb.id %>" target="_blank" rel="nofollow">
+            <span><img height="180" width="180" src="<%= cb.mainphoto %>"  alt="<%= cb.description[0,90]%>... "></span></a>
+          </div>
+          <div class="gradient-wrap">
+            <%= button_to "Купить"+"\n"+cb.price.to_s, line_items_path(:crossbow_id => cb), :remote => true, data: { confirm: 'Добавлено в карзину' }, :class => "btn btn-grey btn-large" %>
+            
+            <div class="separator-dotted">
+            </div>
+            
+          </div>
+      </div>
+      
+    <% end %>
+</div>
